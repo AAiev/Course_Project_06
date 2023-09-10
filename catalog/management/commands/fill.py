@@ -5,6 +5,9 @@ from catalog.models import Product, Category
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
+        Product.objects.all().delete()
+        Category.objects.all().delete()
+
         category_list = [
             {"pk": 1, "name": "Электроинструмент", "description": "Электроинструменты аккумуляторные и сетевые"},
             {"pk": 2, "name": "Ручной инструмент", "description": "Ручные инструменты различные"},
@@ -19,7 +22,6 @@ class Command(BaseCommand):
         Category.objects.bulk_create(category_for_create)
         print('category ok')
 
-    # def handle_product(self, *args, **options):
         product_list = [
             {"name": "Молоток",
              "description": "Молоток ручной.",
