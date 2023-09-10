@@ -1,1 +1,73 @@
-[{"model": "catalog.product", "pk": 1, "fields": {"name": "Молоток", "description": "Молоток ручной.", "image": "", "category": 2, "price": 590, "date_create": "2023-09-10T13:07:02.433Z", "date_last_modified": "2023-09-10T13:07:02.433Z"}}, {"model": "catalog.product", "pk": 2, "fields": {"name": "Шуруповерт", "description": "Шуруповерт аккумуляторный", "image": "", "category": 1, "price": 3500, "date_create": "2023-09-10T13:23:38.951Z", "date_last_modified": "2023-09-10T13:23:38.951Z"}}, {"model": "catalog.product", "pk": 3, "fields": {"name": "Лопата садовая", "description": "Лопата садовая металлическая с деревянной ручкой", "image": "", "category": 3, "price": 1200, "date_create": "2023-09-10T13:24:26.737Z", "date_last_modified": "2023-09-10T13:24:26.737Z"}}, {"model": "catalog.category", "pk": 1, "fields": {"name": "Электроинструмент", "description": "Электроинструменты аккумуляторные и сетевые"}}, {"model": "catalog.category", "pk": 2, "fields": {"name": "Ручной инструмент", "description": "Ручные инструменты различные"}}, {"model": "catalog.category", "pk": 3, "fields": {"name": "Садовый инструмент", "description": "Садовые инструменты различные"}}, {"model": "catalog.category", "pk": 4, "fields": {"name": "Бензоинструмент", "description": "Бензоинструмент различный"}}]
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Молоток",
+      "description": "Молоток ручной.",
+      "image": "",
+      "category": 2,
+      "price": 590,
+      "date_create": "2023-09-10T13:07:02.433Z",
+      "date_last_modified": "2023-09-10T13:07:02.433Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "Шуруповерт",
+      "description": "Шуруповерт аккумуляторный",
+      "image": "",
+      "category": 1,
+      "price": 3500,
+      "date_create": "2023-09-10T13:23:38.951Z",
+      "date_last_modified": "2023-09-10T13:23:38.951Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "Лопата садовая",
+      "description": "Лопата садовая металлическая с деревянной ручкой",
+      "image": "",
+      "category": 3,
+      "price": 1200,
+      "date_create": "2023-09-10T13:24:26.737Z",
+      "date_last_modified": "2023-09-10T13:24:26.737Z"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Электроинструмент",
+      "description": "Электроинструменты аккумуляторные и сетевые"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Ручной инструмент",
+      "description": "Ручные инструменты различные"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Садовый инструмент",
+      "description": "Садовые инструменты различные"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Бензоинструмент",
+      "description": "Бензоинструмент различный"
+    }
+  }
+]
