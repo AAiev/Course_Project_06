@@ -20,3 +20,11 @@ def contacts(request):
         message = request.POST.get('message')
         print(f'{name}, {phone}: {message}')
     return render(request, 'catalog/contacts.html', context)
+
+def product(request, pk):
+    product_item = Product.objects.get(pk=pk)
+    context = {
+        'object_list':  Product.objects.filter(pk=pk),
+        'title': product_item.name,
+    }
+    return render(request, 'catalog/product.html', context)
