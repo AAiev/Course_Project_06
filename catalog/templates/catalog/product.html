@@ -1,7 +1,6 @@
 {% extends 'catalog/base.html' %}
 {% load my_tags %}
 {% block content %}
-{% for object in object_list %}
 <div class="col">
     <div class="card shadow-sm">
         <svg class="bd-placeholder-img card-img-top" width="100%" height="40">
@@ -10,8 +9,8 @@
                 {{ object.name }}
             </text>
         </svg>
-
-            <img src="{{ object.image|media_file }}" class="rounded mx-auto d-block" height="200" width="200"  alt="{{ object.name }}">
+        <img src="{{ object.image|media_file }}" class="rounded mx-auto d-block" height="200" width="200"
+             alt="{{ object.name }}">
         <div class="card-body">
             <text>Название товара: {{ object.name }}.<br>
                 Категория: {{ object.category }} <br>
@@ -19,12 +18,8 @@
                 Дата изменения: {{ object.date_last_modified }} <br>
                 Цена: {{ object.price }} руб. <br>
                 Описание: {{ object.description }} <br>
-
             </text>
         </div>
-
-
     </div>
 </div>
-{% endfor %}
 {% endblock %}

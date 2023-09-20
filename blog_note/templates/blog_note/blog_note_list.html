@@ -1,0 +1,38 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+
+<div class="col-12">
+    <a class="btn btn-outline primary" href="{% url 'blog_note:create' %}">Добавить запись</a>
+</div>
+{% for object in object_list %}
+
+<div class="col">
+    <div class="card shadow-sm">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="40">
+            <rect width="100%" height="100%" fill="#55595c"/>
+            <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                Название: {{ object.title }}
+            </text>
+        </svg>
+        <div class="card-body">
+            <p class="card-text" height="100">Содержимое: {{ object.content | slice:100}}.</p>
+            <p class="card-text" height="100">Slug: {{ object.slug }}.</p>
+            <p class="card-text" height="100">Дата создания: {{ object.date_create }}.</p>
+            <p class="card-text" height="100">Признак публикации: {{ object.sign_of_publication }}.</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="{% url 'blog_note:view' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                    <a href="{% url 'blog_note:edit' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a href="{% url 'blog_note:delete' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Delete</a>
+                </div>
+                <small class="text-body-secondary">Просмотры: {{ object.quantity_views }}</small>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
