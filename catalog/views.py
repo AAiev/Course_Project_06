@@ -1,6 +1,9 @@
+from django.forms import inlineformset_factory
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
 
+from catalog.forms import ProductForm
 from catalog.models import Product
 
 
@@ -34,3 +37,26 @@ class ProductDetailView(DetailView):
         context_data['pk'] = product_item.pk
         context_data['title'] = product_item.name
         return context_data
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy('catalog:home')
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(self, **kwargs)
+        inlineformset_factory
+        return context_data
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('catalog:home')
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy('catalog:home')
+
+
