@@ -41,11 +41,6 @@ class Version(models.Model):
     attribute = models.BooleanField(default=False, verbose_name='Актуальная версия', **NULLABLE)
 
     def __str__(self):
-        # if self.attribute:
-        #     attribute_name = 'активная'
-        # else:
-        #     attribute_name = 'нективная'
-        # return f'{attribute_name} версия. Название {self.name}'
 
         return f'Название {self.name}'
 
