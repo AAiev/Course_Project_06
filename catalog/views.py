@@ -53,12 +53,11 @@ class ProductUpdateView(UpdateView):
             contex_data['formset'] = VersionFormset(self.request.POST, instance=self.object)
         else:
             contex_data['formset'] = VersionFormset(instance=self.object)
-
         return contex_data
 
     def form_valid(self, form):
         formset = self.get_context_data()['formset']
-        self.object.save()
+        self.object = form.save()
         if formset.is_valid():
             formset.instance = self.object
             formset.save()
@@ -86,7 +85,7 @@ class ProductCreateView(CreateView):
 
     def form_valid(self, form):
         formset = self.get_context_data()['formset']
-        self.object.save()
+        self.object = form.save()
         if formset.is_valid():
             formset.instance = self.object
             formset.save()
