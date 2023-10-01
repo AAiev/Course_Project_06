@@ -26,7 +26,6 @@ class ProductForm(forms.ModelForm):
         for word in unacceptable_words:
             if word in cleaned_data.lower():
                 raise forms.ValidationError('Недопустимое описание продукта')
-
         return cleaned_data
 
 class VersionForm(forms.ModelForm):
