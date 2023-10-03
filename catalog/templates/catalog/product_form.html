@@ -18,6 +18,7 @@
             </div>
         </div>
     </div>
+    {% if object %}
     <div class="col-6">
         <div class="card">
             <div class="card-header">
@@ -25,15 +26,22 @@
                     Версия продукта
                 </h4>
             </div>
+
             {{ formset.management_form }}
-                {% for form in formset.forms %}
+            {% for form in formset.forms %}
+
             <div class="card-body">
-                
-                    {{ form.as_p }}
-                
+                {{ form.as_p }}
+                {% if not forloop.last %}
+                <hr>
+                <br>
+                {% endif %}
             </div>
+
+
             {% endfor %}
         </div>
     </div>
+    {% endif %}
 </form>
 {% endblock %}

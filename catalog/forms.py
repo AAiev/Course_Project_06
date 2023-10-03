@@ -2,8 +2,14 @@ from django import forms
 
 from catalog.models import Product, Version
 
+class StyleFormMaxin:
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_key, field_value in self.fields.items():
+            field_value.widget.attrs['class'] = 'form-control'
 
-class ProductForm(forms.ModelForm):
+
+class ProductForm(StyleFormMaxin, forms.ModelForm):
 
     class Meta:
         model = Product
@@ -28,9 +34,8 @@ class ProductForm(forms.ModelForm):
                 raise forms.ValidationError('Недопустимое описание продукта')
         return cleaned_data
 
-class VersionForm(forms.ModelForm):
+class VersionForm(StyleFormMaxin, forms.ModelForm):
     class Meta:
 
         model = Version
         fields = ('name', 'number', 'attribute',)
-
