@@ -1,0 +1,21 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+
+        {% block content1 %}
+        {% endblock %}
+    {% else %}
+
+    <div class="col">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <p class="card-text" height="100">Просматривать контент могут только зарегистрированные пользователи.</p>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

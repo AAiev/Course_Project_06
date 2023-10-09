@@ -20,7 +20,9 @@ from django.conf.urls.static import static
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('catalog.urls', namespace='catalog')),
-    path('blog_note/', include('blog_note.urls', namespace='blog_note')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', include('catalog.urls', namespace='catalog')),
+                  path('blog_note/', include('blog_note.urls', namespace='blog_note')),
+                  path('users/', include('users.urls', namespace='users')),
+
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

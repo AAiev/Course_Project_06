@@ -1,6 +1,6 @@
-{% extends 'catalog/base.html' %}
+{% extends 'catalog/base_auth.html' %}
 {% load my_tags %}
-{% block content %}
+{% block content1 %}
 <div class="row">
     <div class="col">
         <div class="btn-group">
@@ -20,11 +20,9 @@
                     {{ object.name }}
                 </text>
             </svg>
-            <!--            <img src="{{ object.image|media_file }}" class="rounded mx-auto d-block" height="200" width="200"  alt="{{ object.name }}">-->
-
             <div class="card-body" style="height: 300px" ;>
                 <img src="{% media_file object.image %}" class="rounded mx-auto d-block" height="200"
-                    alt="{{ object.name }}">
+                     alt="{{ object.name }}">
                 <p class="card-text" height="100">{{ object.description | slice:100}}.</p>
             </div>
             <div class="row p-3">

@@ -74,8 +74,10 @@ class ProductCreateView(CreateView):
     form_class = ProductForm
     success_url = reverse_lazy('catalog:home')
 
+
     def get_context_data(self, **kwargs):
         contex_data = super().get_context_data(**kwargs)
+        contex_data['user'] = self.request.user
         VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
         if self.request.method == 'POST':
             contex_data['formset'] = VersionFormset(self.request.POST)
