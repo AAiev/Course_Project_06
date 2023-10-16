@@ -11,6 +11,14 @@ class StyleFormMaxin:
 
 class ProductForm(StyleFormMaxin, forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        """Обновление стилей формы регистрации"""
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields['name'].widget.attrs.update({"placeholder": 'Введите название продукта'})
+            self.fields['description'].widget.attrs.update({"placeholder": 'Введите описание продукта'})
+            self.fields['category'].widget.attrs.update({"placeholder": 'Выбирите категорию'})
+
     class Meta:
         model = Product
         # fields = '__all__'

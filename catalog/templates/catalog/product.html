@@ -31,6 +31,7 @@
                         Дата изменения: {{ object.date_last_modified }} <br>
                         Цена: {{ object.price }} руб. <br>
                         Описание: {{ object.description }} <br>
+                        {% if object.user %}Владелец: {{ object.user.first_name }} {{ object.user.last_name }} ({{ object.user.email }}) {% endif %} <br>
                     </p>
                 </div>
             </div>

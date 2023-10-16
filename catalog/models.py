@@ -11,7 +11,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='Цена за покупку')
     date_create = models.DateTimeField(verbose_name='Дата создания', auto_now=True)
     date_last_modified = models.DateTimeField(verbose_name='Дата последнего изменения', auto_now_add=True)
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE, verbose_name='пользователь', **NULLABLE)
+    user = models.ForeignKey('users.User', default=None, on_delete=models.CASCADE, verbose_name='пользователь')
 
 
     def __str__(self):
