@@ -12,10 +12,11 @@ from users.forms import UserRegisterForm, UserProfileForm, UserForgotPasswordFor
 from users.models import User
 from users.utils.utils import auth_send_mail
 
+
 class UserLoginView(LoginView):
     """Вход на сайт"""
     def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
+        context = super().get_context_data(**kwargs)
         context['title'] = 'Вход на сайт'
         return context
 
@@ -35,7 +36,7 @@ class RegisterView(CreateView):
 
     def get_context_data(self, *args, **kwargs):
         """Добавляем значение [title]"""
-        context = super().get_context_data(*args, **kwargs)
+        context = super().get_context_data(**kwargs)
         context['title'] = 'Регистрация на сайте'
         return context
 
@@ -81,6 +82,7 @@ class EmailConfirmationSentView(TemplateView):
 
 class UserConfirmEmailView(View):
     """Проверка ссылки и активация профиля"""
+
     def get(self, request, token):
         try:
             user = User.objects.get(token=token)
@@ -110,6 +112,7 @@ class EmailConfirmationFailedView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Ваш электронный адрес не активирован'
         return context
+
 
 class UserForgotPasswordView(SuccessMessageMixin, PasswordResetView):
     """
@@ -159,4 +162,3 @@ class PasswordSuccessSentView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Вы сменили пароль'
         return context
-
